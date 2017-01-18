@@ -2,6 +2,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.util.Scanner;
 
 import static java.lang.Class.*;
 
@@ -10,13 +11,15 @@ import static java.lang.Class.*;
  */
 public class ReflectionInterface {
     public static void main(String[] args) {
-        new ReflectionInterface().launch(args.length >=1 ? args[0] : "ReflectionInterface");
+        new ReflectionInterface().launch();
     }
 
-    private void launch(String classname) {
-        Class aClass;
-        try {
-            aClass = forName(classname);
+    private void launch() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the name of a class: ");
+        String classname = input.nextLine();
+           try {
+            Class aClass = forName(classname);
             System.out.println("\nName: " + aClass.getName());
             System.out.println("Name without package: " + aClass.getSimpleName());
 

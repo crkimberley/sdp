@@ -1,4 +1,5 @@
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
@@ -42,6 +43,12 @@ public class ReflectionInterface {
             System.out.println("\nPublic & Private Methods...");
             for (Method method : methods) {
                 System.out.println(method);
+            }
+
+            Field[] fields = aClass.getDeclaredFields();
+            System.out.println("\nPublic & Private Fields");
+            for (Field field : fields) {
+                System.out.println(field);
             }
 
         } catch (ClassNotFoundException e) {

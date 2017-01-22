@@ -54,8 +54,8 @@ public class ReflectionObject {
                 }
                 Object createdObject = matchedConstructor.newInstance(arguments);
 
-                System.out.print("Reflectively created a new object of class ");
-                System.out.println(createdObject.getClass().getName());
+                System.out.print("\nReflectively created a new object of > ");
+                System.out.println(createdObject.getClass().toGenericString());
                 System.out.println("toString: " + createdObject.toString());
 
                 /*System.out.println("\nCast in order to use methods...");

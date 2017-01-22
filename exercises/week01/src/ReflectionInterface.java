@@ -26,7 +26,8 @@ public class ReflectionInterface {
             System.out.println("\nClass or Interface: "
                     + (aClass.isInterface() ? "Interface" : "Class:"));
 
-            int modifiers = aClass.getModifiers();System.out.println();
+            int modifiers = aClass.getModifiers();
+            System.out.println();
             System.out.println("\nModifiers..." + Modifier.toString(modifiers));
 
             Constructor[] constructors= aClass.getConstructors();

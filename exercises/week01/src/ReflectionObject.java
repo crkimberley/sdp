@@ -15,10 +15,12 @@ public class ReflectionObject {
         /*String classname = "ReflectionTestObject";
         String argumentString =
                 "java.lang.String text java.lang.Integer 42 java.lang.Integer 17 java.lang.Boolean true";*/
+        System.out.println("This program creates an object of a read class using reflection");
+        System.out.println("The argument constructors must take a string as their only argument");
         Scanner input = new Scanner(System.in);
         System.out.print("Enter class name: ");
         String classname = input.nextLine();
-        System.out.print("Enter arguments (Type Value Type Value...): ");
+        System.out.print("Enter arguments (Type (space) Value (space) Type (space) Value...): ");
         String argumentString = input.nextLine();
         String[] argumentStrings = argumentString.split(" ");
         int numberOfArguments = argumentStrings.length/2;
@@ -54,8 +56,8 @@ public class ReflectionObject {
                 }
                 Object createdObject = matchedConstructor.newInstance(arguments);
 
-                System.out.print("\nReflectively created a new object of > ");
-                System.out.println(createdObject.getClass().toGenericString());
+                System.out.println("\nReflectively created a new object");
+                System.out.println("> " + createdObject.getClass().toGenericString());
                 System.out.println("toString: " + createdObject.toString());
 
                 /*System.out.println("\nCast in order to use methods...");

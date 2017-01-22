@@ -60,7 +60,7 @@ public class ReflectionObject {
                 System.out.println("> " + createdObject.getClass().toGenericString());
                 System.out.println("toString: " + createdObject.toString());
 
-                /*System.out.println("\nCast in order to use methods...");
+                /*System.out.println("\nCast in order to use methods of ReflectionTestObject...");
                 ReflectionTestObject reflectionTestObject = (ReflectionTestObject) createdObject;
                 System.out.println("name: " + reflectionTestObject.getName());
                 System.out.println("number1: " + reflectionTestObject.getNumber1());

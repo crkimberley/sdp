@@ -58,13 +58,13 @@ public class ReflectionObject {
                 System.out.println(createdObject.getClass().getName());
                 System.out.println("toString: " + createdObject.toString());
 
-                System.out.println("Cast in order to use methods...");
+                /*System.out.println("\nCast in order to use methods...");
                 ReflectionTestObject reflectionTestObject = (ReflectionTestObject) createdObject;
                 System.out.println("name: " + reflectionTestObject.getName());
                 System.out.println("number1: " + reflectionTestObject.getNumber1());
                 System.out.println("number2: " + reflectionTestObject.getNumber2());
                 System.out.println("truth: " + reflectionTestObject.isTruth());
-                System.out.println("number1 * number2 = " + reflectionTestObject.product());
+                System.out.println("number1 * number2 = " + reflectionTestObject.product());*/
             }
 
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException |

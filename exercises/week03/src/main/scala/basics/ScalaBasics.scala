@@ -26,7 +26,7 @@ object ScalaBasics {
    * @param end the end of the range
    * @return the inclusive Range from start to end
    */
-  def inRange(start: Int, end: Int): Range = ???
+  def inRange(start: Int, end: Int): Range = start until end + 1
 
   /**
    * Write a function that returns a Range of odd n odd integers starting at 1.
@@ -36,7 +36,7 @@ object ScalaBasics {
    * @param n the number of odd integers in the range
    * @return a Range of odd integers, excluding the last add integer
    */
-  def oddRange(n: Int): Range = ???
+  def oddRange(n: Int): Range = 1 until(2 * n, 2)
 
   /**
    * Write a function that returns the minimum integer in the Array r.
@@ -50,7 +50,15 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minWhile(r: Array[Int]): Int = ???
+  def minWhile(r: Array[Int]): Int = {
+    var minimum = r(0)
+    var arrayIndex = 1
+    while (arrayIndex < r.length) {
+      minimum = if (r(arrayIndex) < minimum) r(arrayIndex) else minimum
+      arrayIndex += 1
+    }
+    minimum
+  }
 
   /**
    * Write a function that returns the minimum integer in the Array r.
@@ -64,7 +72,13 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minFor(r: Array[Int]): Int = ???
+  def minFor(r: Array[Int]): Int = {
+    var minimum = r(0)
+    for (integer <- r) {
+      minimum = integer min minimum
+    }
+    minimum
+  }
 
   /**
    * Write a function called minRecursive that returns the minimum integer in the Array r.

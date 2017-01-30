@@ -151,10 +151,7 @@ object ScalaBasics {
    * @return true if s is a palindrome; false otherwise
    */
   def isPalindrome(s: String): Boolean = {
-    val normalizedString = for {
-      ch <- s
-      if (ch.isLetter)
-    } yield ch.toLower
+    val normalizedString = for (ch <- s if (ch.isLetter)) yield ch.toLower
     normalizedString == normalizedString.reverse
   }
 

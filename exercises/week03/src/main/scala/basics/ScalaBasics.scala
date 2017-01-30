@@ -94,9 +94,7 @@ object ScalaBasics {
    * @param r the array of integers
    * @return the minimum integer in the array
    */
-  def minRecursive(r: Array[Int]): Int = {
-    r.reduceLeft((x, y) => if (x < y) x else y)
-  }
+  def minRecursive(r: Array[Int]): Int = r.reduceLeft((x, y) => if (x < y) x else y)
 
   /**
    * Return the base 36 equivalent of the BitInt b.
@@ -106,9 +104,7 @@ object ScalaBasics {
    * @param b a big integer
    * @return the base 36 equivalent
    */
-  def base36(b: BigInt): String = {
-    b.toString(36)
-  }
+  def base36(b: BigInt): String = b toString 36
 
   /**
    * Splits the String s in half.

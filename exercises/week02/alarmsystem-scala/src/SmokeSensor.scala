@@ -1,9 +1,19 @@
-class SmokeSensor extends Sensor {
-  override def isTriggered: Boolean = false
+class SmokeSensor extends Sensor with HazardSensor {
+  val location = ""
+  val alarmFrequencyPercentage = 10
+  val batteryDrainBetweenPollsPercentage = 20
+  var batteryPercentage = 100
+  var triggered: Boolean = false
 
-  override def getLocation: String = null
+  override def isTriggered = {
+    var triggered = isTriggered(batteryPercentage, alarmFrequencyPercentage)
+    batteryPercentage = batteryDrainedPercentage(batteryPercentage, batteryDrainBetweenPollsPercentage)
+    triggered
+  }
 
-  override def getSensorType: String = null
+  override def getLocation = location
 
-  override def getBatteryPercentage: Double = -1
+  override def getSensorType = "Smoke"
+
+  override def getBatteryPercentage = batteryPercentage
 }

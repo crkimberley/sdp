@@ -27,6 +27,7 @@ sensors don't run on a battery so one of the Sensor interface methods is
 suddenly redundant for a whole set of sensors.
 Which method is this and what SOLID principle does this break?
 
-
+ - getBatteryPercentage is redundant for the SecuritySensors
+ - the Interface-Segregation Principle is broken
 
 

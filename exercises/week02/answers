@@ -19,7 +19,6 @@ What are the responsibilities now?
  - print sensor types and locations
 
 
-
 Ex.06
 A new use case! This is no longer a alarm system for only detecting hazards, it
 should now also include security such as motion and heat sensors. However, these
@@ -31,3 +30,7 @@ Which method is this and what SOLID principle does this break?
  - the Interface-Segregation Principle is broken
 
 
+Ex.10
+Which SOLID principle are we maintaining/not breaking by doing this?
+
+ - the Open-Closed Principle

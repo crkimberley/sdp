@@ -7,7 +7,11 @@ trait HazardSensor {
   val r = new Random()
 
   def isTriggered(batteryPercentage: Int, alarmFrequency: Int) = {
-    if (batteryPercentage > 0) r.nextInt(100) < alarmFrequency else false
+    var randomInt = r.nextInt(100)
+    println("alarmFrequency = " + alarmFrequency + ", " +
+      "batteryPercentage = " + batteryPercentage + ", " + "randomInt = " + randomInt)
+    println(batteryPercentage)
+    if (batteryPercentage > 0) randomInt < alarmFrequency else false
   }
 
   def batteryDrainedPercentage(batteryPercentage: Int, batteryDrainBetweenPolls: Int) = {

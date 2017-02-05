@@ -1,3 +1,5 @@
+import SensorCategory.SensorCategory
+
 trait Sensor {
   def isTriggered: Boolean
 
@@ -5,5 +7,7 @@ trait Sensor {
 
   def getSensorType: String
 
-  def getBatteryPercentage: Double
+  def getSensorCategory: SensorCategory
+
+  //def getBatteryPercentage: Double
 }

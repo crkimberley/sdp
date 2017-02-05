@@ -3,7 +3,7 @@ import scala.util.Random
 /**
   * @author Chris Kimberley
   */
-trait HazardSensor {
+trait HazardSensor extends Sensor {
   val r = new Random()
 
   def isTriggered(batteryPercentage: Int, alarmFrequency: Int) = {
@@ -18,4 +18,8 @@ trait HazardSensor {
     if (batteryPercentage > batteryDrainBetweenPolls)
       batteryPercentage - batteryDrainBetweenPolls else 0
   }
+
+  def getBatteryPercentage: Double
+
+  override def getSensorCategory = SensorCategory.HAZARD
 }

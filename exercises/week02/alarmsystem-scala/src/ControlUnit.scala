@@ -1,8 +1,8 @@
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
 
-class ControlUnit {
-  def pollSensors(sensors: mutable.Buffer[Sensor]) {
+class ControlUnit(sensors: mutable.Buffer[Sensor]) {
+
+  def pollSensors {
     //val sensors = new ListBuffer[Sensor]()
     //sensors += new FireSensor()
     //sensors += new SmokeSensor()

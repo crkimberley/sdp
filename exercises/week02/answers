@@ -1,4 +1,32 @@
 Exercise sheet | S.O.L.I.D.
 
-Ex.03:  Examine the ControlUnit.pollSensors() method. What  are  its  current  responsibilities?
+Ex.03
+Examine the ControlUnit.pollSensors() method.
+What are its current responsibilities?
+
+ - create new list of Sensors
+ - create new FireSensor
+ - create new SmokeSensor
+ - poll sensors
+ - print sensor types and locations
+
+
+Ex.05
+Investigate the pollSensors method again, as you did in the previous exercise.
+What are the responsibilities now?
+
+ - poll sensors
+ - print sensor types and locations
+
+
+
+Ex.06
+A new use case! This is no longer a alarm system for only detecting hazards, it
+should now also include security such as motion and heat sensors. However, these
+sensors don't run on a battery so one of the Sensor interface methods is
+suddenly redundant for a whole set of sensors.
+Which method is this and what SOLID principle does this break?
+
+
+
 

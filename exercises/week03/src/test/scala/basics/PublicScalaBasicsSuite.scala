@@ -126,4 +126,11 @@ class PublicScalaBasicsSuite extends FunSuite {
   //   assert(sumChars("the true sign of intelligence is not ...".toCharArray: _*) == 3601, "this should sum to 3601")
   // }
 
+  test("[10] wordCounter...") {
+    val strings1 = Array("er", "monkey er tennis", "ok", "right", "ok", "ok donkey breath")
+    assert(wordCounter(strings1) == Map("donkey" -> 1, "tennis" ->
+      1, "monkey" -> 1, "ok" -> 3, "er" -> 2, "right" -> 1, "breath" -> 1))
+    val strings2 = Array("a b c", "a b c d", "a b c d e", "a b c d e f", "a b c d e f g")
+    assert(wordCounter(strings2) == Map("e" -> 3, "f" -> 2, "a" -> 5, "b" -> 5, "g" -> 1, "c" -> 5, "d" -> 4))
+  }
 }

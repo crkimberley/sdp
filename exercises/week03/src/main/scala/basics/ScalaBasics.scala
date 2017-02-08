@@ -199,17 +199,5 @@ object ScalaBasics {
    * @return a map from words to the number of times that word was seen
    */
   def wordCounter(lines: Array[String]): Map[String, Int] =
-  /*
-  {
-    var wordMap: Map[String, Int] = new mutable.HashMap[String, Int]()
-    for (line <- lines; word <- line.split(" ")) {
-        if (wordMap.isDefinedAt(word))
-          wordMap.update(word, wordMap.getOrElse(word, 0) += 1)
-        else
-          wordMap.update(word, 1)
-    }
-    wordMap
-  }
-*/
   lines.flatMap(line => line.split(" ")).groupBy(w => w).mapValues(_.length)
 }

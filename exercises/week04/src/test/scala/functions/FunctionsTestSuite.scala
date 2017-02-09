@@ -1,8 +1,7 @@
 package functions
 
-import org.scalatest.FunSuite
 import functions.Funcs._
-import support.TreeTraversals
+import org.scalatest.FunSuite
 
 class FunctionsTestSuite extends FunSuite {
     // Basics

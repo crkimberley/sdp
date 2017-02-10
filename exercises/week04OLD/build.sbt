@@ -1,4 +1,4 @@
-name := """week04"""
+name := """exercises week04"""
 
 version := "1.0"
 
@@ -14,6 +14,6 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 libraryDependencies <+= scalaVersion("org.scala-lang" % "scala-compiler" % _)
 
 // Exclude some folders associated with IntelliJ
-//ideaExcludeFolders += ".idea"
+ideaExcludeFolders += ".idea"
 
-//ideaExcludeFolders += ".idea_modules"
+ideaExcludeFolders += ".idea_modules"

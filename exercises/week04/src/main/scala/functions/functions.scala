@@ -85,15 +85,15 @@ object Funcs {
      * the sublists into one long list. For example, flatten(List(List(1,2,3),
      * List(4,5,6))) produces List(1,2,3,4,5,6).
      */
-     def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)((x, y) => x + y)
+     def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)((b, a) => b + a)
 
-     def product(ls: List[Double]): Double = foldLeft(ls, 1.0)((x, y) => x * y)
+     def product(ls: List[Double]): Double = foldLeft(ls, 1.0)((b, a) => b * a)
 
-     def length[A](ls: List[A]): Int = foldLeft(ls, 0)((x, y) => x + 1)
+     def length[A](ls: List[A]): Int = foldLeft(ls, 0)((b, a) => b + 1)
 
-     def reverse[A](ls: List[A]): List[A] = foldLeft[A, List[A]](ls, Nil)((x, y) => y :: x)
+     def reverse[A](ls: List[A]): List[A] = foldLeft[A, List[A]](ls, Nil)((b, a) => a :: b)
 
-     def flatten[A](ls: List[List[A]]): List[A] = foldLeft[List[A], List[A]](ls, Nil)((x, y) => y ::: x)
+     def flatten[A](ls: List[List[A]]): List[A] = foldLeft[List[A], List[A]](ls, Nil)((b, a) => b ::: a)
 
     // MAP AND FILTER
 

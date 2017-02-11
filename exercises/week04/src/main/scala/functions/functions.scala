@@ -85,7 +85,8 @@ object Funcs {
      * the sublists into one long list. For example, flatten(List(List(1,2,3),
      * List(4,5,6))) produces List(1,2,3,4,5,6).
      */
-     def sum(ls: List[Double]): Double = ???
+     def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)((x, y) => x + y)
+
      def product(ls: List[Double]): Double = ???
      def length[A](ls: List[A]): Int = ???
      def reverse[A](ls: List[A]): List[A] = ???

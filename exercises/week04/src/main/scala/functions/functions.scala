@@ -85,9 +85,9 @@ object Funcs {
      * the sublists into one long list. For example, flatten(List(List(1,2,3),
      * List(4,5,6))) produces List(1,2,3,4,5,6).
      */
-     def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)((b, a) => b + a)
+     def sum(ls: List[Double]): Double = foldLeft(ls, 0.0)((b, a) => a + b)
 
-     def product(ls: List[Double]): Double = foldLeft(ls, 1.0)((b, a) => b * a)
+     def product(ls: List[Double]): Double = foldLeft(ls, 1.0)((b, a) => a * b)
 
      def length[A](ls: List[A]): Int = foldLeft(ls, 0)((b, a) => b + 1)
 
@@ -105,7 +105,10 @@ object Funcs {
      * @param f: A => B the function to be applied to each element of the input.
      * @return the resulting list from applying f to each element of ls.
      */
-     def map[A,B](ls: List[A])(f: A => B): List[B] = ???
+     def map[A,B](ls: List[A])(f: A => B): List[B] = ls match {
+       case Nil => Nil
+       case head :: tail => f(head) :: map(tail)(f)
+     }
 
     /**
      * filter removes all elements from a list for which a given predicate

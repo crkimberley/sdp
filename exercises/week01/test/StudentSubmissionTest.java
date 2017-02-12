@@ -1,6 +1,5 @@
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -22,7 +21,7 @@ public class StudentSubmissionTest {
     private static Constructor[] constructors;
 
 
-    @BeforeAll
+    @BeforeClass
     public static void setupClass() throws ClassNotFoundException {
         String classname = "StudentSubmission";
         classUnderTest = Class.forName(classname);

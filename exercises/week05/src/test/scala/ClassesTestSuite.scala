@@ -20,4 +20,19 @@ class ClassesTestSuite extends FunSuite {
     assert(new Counter(10).inc().dec().inc().inc().count == 12)
   }
 
+  test("Default value of 0 is returned for count") {
+    assert(new Counter().count == 0)
+  }
+
+  test("Count value passed in is correctly returned") {
+    assert(new Counter(17).count == 17)
+  }
+
+  test("adjust method returns Counter with passed in Adder applied to count") {
+    val countValue = 6
+    val adderAmount = 7
+    val counter = new Counter(countValue)
+    val adder = new Adder(adderAmount)
+    assert(counter.adjust(adder).count == countValue + adderAmount)
+  }
 }

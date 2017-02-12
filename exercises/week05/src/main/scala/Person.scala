@@ -23,7 +23,6 @@ case class Person(firstName: String, lastName: String = "Last name not supplied"
 object Person {
   def apply(name: String) = {
     val names = name.split(" ")
-    println("Explicit companion object being used for " + names(0))
     new Person(names(0), if (names.length > 1) names(1) else "")
   }
 }

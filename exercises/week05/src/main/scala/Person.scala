@@ -18,7 +18,7 @@ object Person {
 // argument is supplied to the contructor and the implicit object's apply method
 // is called two arguments (Strings) are supplied
 
-case class Person(firstName: String, lastName: String = "Last name not supplied") {}
+case class Person(firstName: String, lastName: String) {}
 
 object Person {
   def apply(name: String) = {

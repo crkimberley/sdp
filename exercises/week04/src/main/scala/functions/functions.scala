@@ -1,5 +1,6 @@
 package functions
 
+//noinspection ScalaStyle
 object Funcs {
 
     // FUNCTIONAL BASICS:
@@ -165,8 +166,8 @@ object Funcs {
      * @param return the variance of the input.
      */
      def variance(ls: List[Double]): Double = {
-       val meanValueOfList = sum(ls)/length(ls)
-       val squaredDifferenceList = map(ls)(x => math.pow(x - meanValueOfList, 2))
-       sum(squaredDifferenceList)/length(squaredDifferenceList)
+       val meanValueOfList = sum(ls) / length(ls)
+       val squaredDifferenceList = ls map (x => math.pow(x - meanValueOfList, 2))
+       sum(squaredDifferenceList) / length(squaredDifferenceList)
      }
 }

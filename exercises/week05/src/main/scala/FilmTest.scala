@@ -34,4 +34,6 @@ object FilmTest extends App {
   println()
   println(s"ORIGINAL: $inception")
   println(s"COPY-COPY-COPY: ${inception.copy().copy().copy()}")
+
+  println(inception.copy() == inception)
 }

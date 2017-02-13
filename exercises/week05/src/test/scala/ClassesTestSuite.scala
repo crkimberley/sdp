@@ -100,12 +100,28 @@ class ClassesTestSuite extends FunSuite {
   }
 
   // Director companion object methods
-    test("apply method returns a new director") {
+    test("apply method returns a new Director") {
     assert(Director("Bill", "Smith", 1999) == new Director("Bill", "Smith", 1999))
   }
 
   test("older method returns the older director") {
     assert(Director.older(eastwood, nolan) == eastwood)
     assert(Director.older(someGuy, mcTiernan) == mcTiernan)
+  }
+
+  // Film companion object methods
+  test("apply method returns a new Film") {
+    assert(Film("Toadstool City", 2007, 9.5, someGuy) ==
+      new Film("Toadstool City", 2007, 9.5, someGuy))
+  }
+
+  test("highestRating method returns higher rated Film") {
+    assert(Film.highestRating(predator, dieHard) == dieHard)
+    assert(Film.highestRating(huntForRedOctober, thomasCrownAffair) == huntForRedOctober)
+  }
+
+  test("oldestDirectorAtTheTime returns older director") {
+    assert(Film.oldestDirectorAtTheTime(highPlainsDrifter, memento) == eastwood)
+    assert(Film.oldestDirectorAtTheTime(predator, inception) == nolan)
   }
 }

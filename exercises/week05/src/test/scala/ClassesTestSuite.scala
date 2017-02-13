@@ -98,4 +98,14 @@ class ClassesTestSuite extends FunSuite {
   test("repeated copy method returns identical copy of film") {
     assert(inception.copy().copy().copy().toString == inception.toString)
   }
+
+  // Director companion object methods
+    test("apply method returns a new director") {
+    assert(Director("Bill", "Smith", 1999) == new Director("Bill", "Smith", 1999))
+  }
+
+  test("older method returns the older director") {
+    assert(Director.older(eastwood, nolan) == eastwood)
+    assert(Director.older(someGuy, mcTiernan) == mcTiernan)
+  }
 }

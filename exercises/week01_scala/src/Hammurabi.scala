@@ -56,9 +56,9 @@ object Hammurabi extends App {
   }
 
   def printIntroductoryMessage = println(
-    """of ancient Samaria, elected
-      |      |for a ten year term of office. Your duties
-      |Congratulations, you are the newest ruler are to dispense food, direct
+    """
+      |Congratulations, you are the newest ruler of ancient Samaria, elected
+      |for a ten year term of office. Your duties are to dispense food, direct
       |farming, and buy and sell land as needed to support your people. Watch
       |out for rat infestations and the plague! Grain is the general currency,
       |measured in bushels. The following will help you in your decisions:
@@ -83,8 +83,8 @@ object Hammurabi extends App {
   def askHowMuchLandToBuy(bushelsInStorage: Int, pricePerAcre: Int) = {
     var acresToBuy = readInt("How many acres will you buy? ")
     while (acresToBuy < 0 || acresToBuy * pricePerAcre > bushelsInStorage) {
-      println("O Great Hammurabi, we have but " + bushelsInStorage +
-        " bushels of grain!")
+      println(
+        s"O Great Hammurabi, we have but $bushelsInStorage bushels of grain!")
       acresToBuy = readInt("How many acres will you buy? ")
     }
     acresToBuy
@@ -93,7 +93,7 @@ object Hammurabi extends App {
   def askHowMuchLandToSell(acresOwned: Int) = {
     var acresToSell = readInt("How many acres would you like to sell? ")
     while (acresToSell < 0 || acresToSell > acresOwned) {
-      println("O Great Hammurabi, we only own " + acresOwned + " acres!")
+      println(s"O Great Hammurabi, we only own $acresOwned acres!")
       acresToSell = readInt("How many acres would you like to sell? ")
     }
     acresToSell
@@ -102,8 +102,8 @@ object Hammurabi extends App {
   def askHowMuchGrainToFeedPeople(bushelsInStorage: Int) = {
     var grainForPeople = readInt("How much grain will you feed the people? ")
     while (grainForPeople < 0 || grainForPeople > bushelsInStorage) {
-      println("O Great Hammurabi, we only have " +
-        bushelsInStorage + " bushels of grain!")
+      println(
+        s"O Great Hammurabi, we only have $bushelsInStorage bushels of grain!")
       grainForPeople = readInt("How much grain will you feed the people? ")
     }
     grainForPeople
@@ -114,9 +114,9 @@ object Hammurabi extends App {
     var acresToPlant = readInt("How many acres will you plant with seed? ")
     while (acresToPlant < 0 || acresToPlant > acresOwned ||
       acresToPlant * 2 > bushelsInStorage || acresToPlant > population * 10) {
-      println("O Great Hammurabi, we only own " + acresOwned +
-        " acres and only have " + bushelsInStorage +
-        " bushels and the population is only " + population)
+      println(s"O Great Hammurabi, we only own $acresOwned acres")
+      println(s"and only have $bushelsInStorage bushels")
+      println(s"and the population is only $population")
       acresToPlant = readInt("How many acres will you plant with seed? ")
     }
     acresToPlant

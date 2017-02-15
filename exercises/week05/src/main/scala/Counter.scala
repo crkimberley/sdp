@@ -9,9 +9,7 @@ class Counter(val count: Int) {
 */
 
 case class Counter(count: Int = 0) {
-  def inc(value: Int = 1) = Counter(count + 1)
-
-  def dec(value: Int = 1) = Counter(count - 1)
-
-  def adjust(adder: Adder) = Counter(adder.add(count))
+  def inc(incValue: Int = 1) = Counter(count + incValue)
+  def dec(decvalue: Int = 1) = Counter(count - decvalue)
+  def adjust(adder: Adder) = Counter(adder add count)
 }

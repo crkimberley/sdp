@@ -3,5 +3,6 @@
   */
 class Creator() {
   def makeProduct() = new Product
+  //
 
 }

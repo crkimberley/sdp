@@ -21,6 +21,14 @@ class ClassesTestSuite extends FunSuite {
     assert(Counter(10).inc().dec().inc().inc().count == 12)
   }
 
+  test("incValue passed in to inc method increments count") {
+    assert(Counter(73).inc(10).inc(10).count == 93)
+  }
+
+  test("decValue passed in to inc method decrements count") {
+    assert(Counter(73).dec(10).dec(10).count == 53)
+  }
+
   test("Default value of 0 is returned for count") {
     assert(Counter().count == 0)
   }

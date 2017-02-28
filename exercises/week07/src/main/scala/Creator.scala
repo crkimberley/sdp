@@ -3,7 +3,7 @@
   */
 class Creator {
   def makeProduct(productType: String): Product = productType match {
-    case "cp" => new ConcreteProduct
-    case  _ => null
+    case "c" => new ConcreteProduct
+    case  _ => new DefaultProduct
   }
 }

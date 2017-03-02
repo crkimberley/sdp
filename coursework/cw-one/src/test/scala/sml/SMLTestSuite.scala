@@ -35,7 +35,6 @@ class SMLTestSuite extends FunSpec with BeforeAndAfter {
       val storeInteger1 = LinInstruction("A0", 0, integer1)
       val storeInteger2 = LinInstruction("A1", 1, integer2)
       val add2Integers = AddInstruction("A2", 2, 0, 1)
-      println(add2Integers.toString())
       // label + ": " + opcode + " " + op1 + " + " + op2 + " to " + result + "\n
       assert(add2Integers.toString() === "A2: add 0 + 1 to 2\n")
     }

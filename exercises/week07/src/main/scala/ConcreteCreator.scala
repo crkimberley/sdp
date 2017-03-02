@@ -1,6 +1,6 @@
 /**
   * Created by ckimbe02 on 21/02/2017.
   */
-class ConcreteCreator(productType: String) {
-
+class ConcreteCreator(productType: String) extends Creator {
+  def factoryMethod = new ConcreteProduct
 }

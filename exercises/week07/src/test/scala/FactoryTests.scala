@@ -5,8 +5,8 @@ import org.scalatest.FunSuite
   */
 class FactoryTests extends FunSuite {
   test("New ConcreteProduct creation using factory method in Creator") {
-    val factory = new Creator
-    val newProduct: Product = factory makeProduct "cp"
-    newProduct.displayProduct
+    val factory: Creator = new ConcreteCreator("cp")
+    factory.anOperation
+
   }
 }

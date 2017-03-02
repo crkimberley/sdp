@@ -10,7 +10,7 @@ import scala.util.Random
 class SMLTestSuite extends FunSpec with BeforeAndAfter {
   val random = Random
 
-  before {}
+  before { }
 
   describe("AddInstruction") {
     it ("should return the sum of 2 integers") {

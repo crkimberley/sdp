@@ -16,27 +16,27 @@ class SMLTestSuite extends FunSpec with BeforeAndAfter {
     it ("should return the sum of 2 integers") {
 
       for (i <- 1 to 10000) {
-        var integer1 = random.nextInt(1000000)
-        var integer2 = random.nextInt(1000000)
-        val storeInteger1 = LinInstruction("A0", 0, integer1)
-        val storeInteger2 = LinInstruction("A1", 1, integer2)
-        val add2Integers = AddInstruction("A2", 2, 0, 1)
-        val instructions = Vector(storeInteger1, storeInteger2, add2Integers)
+        var int1 = random.nextInt(1000000) - 500000
+        var int2 = random.nextInt(1000000) - 500000
+        val store1 = LinInstruction("x01", 1, int1)
+        val store2 = LinInstruction("x02", 2, int2)
+        val add = AddInstruction("x03", 0, 1, 2)
+        val instructions = Vector(store1, store2, add)
         val machine = Machine(Labels(), instructions)
         machine.execute()
         assert(machine.regs.registers.slice(0, 3) ===
-          Array(integer1, integer2, integer1 + integer2))
+          Array(int1 + int2, int1, int2))
       }
     }
 
     it ("toString should return 'label: opcode op1 op2 to result +\\n'") {
 
-      var integer1 = random.nextInt(1000000) - 500000
-      var integer2 = random.nextInt(1000000) - 500000
-      val storeInteger1 = LinInstruction("A0", 0, integer1)
-      val storeInteger2 = LinInstruction("A1", 1, integer2)
-      val add2Integers = AddInstruction("A2", 2, 0, 1)
-      assert(add2Integers.toString() === "A2: add 0 + 1 to 2\n")
+      var int1 = random.nextInt(1000000) - 500000
+      var int2 = random.nextInt(1000000) - 500000
+      val store1 = LinInstruction("x01", 1, int1)
+      val store2 = LinInstruction("x02", 2, int2)
+      val add = AddInstruction("x03", 0, 1, 2)
+      assert(add.toString() === "x03: add 1 + 2 to 0\n")
     }
   }
 
@@ -44,45 +44,45 @@ class SMLTestSuite extends FunSpec with BeforeAndAfter {
     it ("should return the difference of 2 integers") {
 
       for (i <- 1 to 10000) {
-        var integer1 = random.nextInt(1000000) - 500000
-        var integer2 = random.nextInt(1000000) - 500000
-        val storeInteger1 = LinInstruction("A0", 0, integer1)
-        val storeInteger2 = LinInstruction("A1", 1, integer2)
-        val sub2Integers = SubInstruction("A2", 2, 0, 1)
-        val instructions = Vector(storeInteger1, storeInteger2, sub2Integers)
+        var int1 = random.nextInt(1000000) - 500000
+        var int2 = random.nextInt(1000000) - 500000
+        val store1 = LinInstruction("x01", 1, int1)
+        val store2 = LinInstruction("x02", 2, int2)
+        val sub = SubInstruction("x03", 0, 1, 2)
+        val instructions = Vector(store1, store2, sub)
         val machine = Machine(Labels(), instructions)
         machine.execute()
         assert(machine.regs.registers.slice(0, 3) ===
-          Array(integer1, integer2, integer1 - integer2))
+          Array(int1 - int2, int1, int2))
       }
     }
 
     it ("toString should return 'label: opcode op1 op2 to result +\\n'") {
 
-      var integer1 = random.nextInt(1000000) - 500000
-      var integer2 = random.nextInt(1000000) - 500000
-      val storeInteger1 = LinInstruction("A0", 0, integer1)
-      val storeInteger2 = LinInstruction("A1", 1, integer2)
-      val sub2Integers = SubInstruction("A2", 2, 0, 1)
-      println(sub2Integers.toString())
-      assert(sub2Integers.toString() === "A2: sub 0 - 1 to 2\n")
+      var int1 = random.nextInt(1000000) - 500000
+      var int2 = random.nextInt(1000000) - 500000
+      val store1 = LinInstruction("x01", 1, int1)
+      val store2 = LinInstruction("x02", 2, int2)
+      val sub = SubInstruction("x03", 0, 1, 2)
+      println(sub.toString())
+      assert(sub.toString() === "x03: sub 1 - 2 to 0\n")
     }
   }
-  /*
-  describe("MulInstruction") {
+
+  /*describe("MulInstruction") {
     it ("should return the product of 2 integers") {
 
       for (i <- 1 to 10000) {
-        var integer1 = random.nextInt(1000000) - 500000
-        var integer2 = random.nextInt(1000000) - 500000
-        val storeInteger1 = LinInstruction("A0", 0, integer1)
-        val storeInteger2 = LinInstruction("A1", 1, integer2)
-        val add2Integers = SubInstruction("A2", 2, 0, 1)
-        val instructions = Vector(storeInteger1, storeInteger2, add2Integers)
+        var Int1 = random.nextInt(1000000) - 500000
+        var Int2 = random.nextInt(1000000) - 500000
+        val storeInt1 = LinInstruction("A0", 0, Int1)
+        val storeInt2 = LinInstruction("x01", 1, Int2)
+        val mul2Ints = MulInstruction("x02", 2, 0, 1)
+        val instructions = Vector(storeInt1, storeInt2, mul2Ints)
         val machine = Machine(Labels(), instructions)
         machine.execute()
         assert(machine.regs.registers.slice(0, 3) ===
-          Array(integer1, integer2, integer1 - integer2))
+          Array(Int1, Int2, Int1 - Int2))
       }
 
     }

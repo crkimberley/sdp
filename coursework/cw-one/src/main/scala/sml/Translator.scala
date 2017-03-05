@@ -43,41 +43,25 @@ class Translator(fileName: String) {
             println(s"Unknown instruction $x")
         }*/
       }
-      for (field <- fields) println("field: " + field)
       val qualifiedClassname = "sml." + fields(1).toLowerCase().capitalize + "Instruction"
-      println("qualifiedClassname = " + qualifiedClassname)
-      val reflectedClass = Class.forName(qualifiedClassname)
-      println("reflectedClass = " + reflectedClass)
-      val constructors = reflectedClass.getConstructors
-      val constructor = constructors(0)
-      println("constructor: " + constructor)
-      for (parType <- constructor.getParameterTypes) println("constructor ParameterType: " + parType)
-      val argFields = fields.slice(2, fields.length)
-      for (field <- argFields) println("argField: " + field)
-      val convertedArguments = fieldsToArgs(argFields)
-      for (arg <- convertedArguments) println("convertedArguments: " + arg)
-      //val allArguments: Array[Object] = fields(0) ++ convertedArguments
-      //println("length of args = " + allArguments.length)
-      var argArray = new Array[AnyRef](fields.length)
-      argArray = fields.slice(0, 2) ++ convertedArguments
-      println("argArray length = " + argArray.length)
-      val instructionInstance = constructor.newInstance(argArray: _*).asInstanceOf[Instruction]
-      program = program :+ instructionInstance
+      val reflectedClassConstructor = Class.forName(qualifiedClassname).getConstructors()(0)
+      val args = fields.slice(0, 2) ++ parseFields(fields.slice(2, fields.length))
+      program = program :+ reflectedClassConstructor.newInstance(args: _*).asInstanceOf[Instruction]
     }
     new Machine(labels, program)
   }
 
-  def fieldsToArgs(fields: Array[String]): Array[AnyRef] = {
-    var args = new Array[AnyRef](fields.length)
+  private def parseFields(fields: Array[String]) = {
+    val args = new Array[AnyRef](fields.length)
     for (i <- fields.indices) {
-      val optionalInt: Option[Integer] = toIntIfNumber(fields(i))
+      val optionalInt = toIntIfNumber(fields(i))
       args(i) = if (optionalInt.isEmpty) fields(i) else optionalInt.get
     }
     args
   }
 
   import scala.util.control.Exception._
-  def toIntIfNumber(field: String): Option[Integer] =
+  private def toIntIfNumber(field: String): Option[Integer] =
     catching(classOf[NumberFormatException]) opt field.toInt
 }
 

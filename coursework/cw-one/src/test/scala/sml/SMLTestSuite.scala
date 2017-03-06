@@ -179,12 +179,11 @@ class SMLTestSuite extends FlatSpec with GivenWhenThen {
     assert(machine.regs(reg0) == 0)
   }
 
-  it should "return 'label1: opcode to label2 if contents of register" +
-    " is " +
-    "not zero\\n'" in {
+  it should "return 'label1: opcode branch to label2 if register" +
+    " is not zero\\n'" in {
     val branch = "x03"
     val bnz = BnzInstruction("x04", reg0, branch)
-    assert(bnz.toString() === s"x04: bnz to $branch if contents of " +
-      s"register $reg0 is not zero\n")
+    assert(bnz.toString() === s"x04: bnz branch to $branch if register " +
+      s"$reg0 is not zero\n")
   }
 }

@@ -11,8 +11,7 @@ class BnzInstruction(label: String, op: String, register: Int, branch: String)
   }
 
   override def toString(): String = {
-    super.toString + s" to $branch if " + s"contents of register $register is not " +
-      s"zero\n"
+    super.toString + s" branch to $branch if register $register is not zero\n"
   }
 }
 

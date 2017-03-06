@@ -24,24 +24,6 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.nonEmpty) {
         labels.add(fields(0))
-        /*fields(1) match {
-          case ADD =>
-            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case SUB =>
-            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case MUL =>
-            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case DIV =>
-            program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
-          case LIN =>
-            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
-          case OUT =>
-            program = program :+ OutInstruction(fields(0), fields(2).toInt)
-          case BNZ =>
-            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
-          case x =>
-            println(s"Unknown instruction $x")
-        }*/
       }
       val qualifiedClassname = "sml." + fields(1).toLowerCase().capitalize + "Instruction"
       val reflectedClassConstructor = Class.forName(qualifiedClassname).getConstructors()(0)
@@ -68,3 +50,22 @@ class Translator(fileName: String) {
 object Translator {
   def apply(file: String) = new Translator(file)
 }
+
+/*fields(1) match {
+          case ADD =>
+            program = program :+ AddInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case SUB =>
+            program = program :+ SubInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case MUL =>
+            program = program :+ MulInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case DIV =>
+            program = program :+ DivInstruction(fields(0), fields(2).toInt, fields(3).toInt, fields(4).toInt)
+          case LIN =>
+            program = program :+ LinInstruction(fields(0), fields(2).toInt, fields(3).toInt)
+          case OUT =>
+            program = program :+ OutInstruction(fields(0), fields(2).toInt)
+          case BNZ =>
+            program = program :+ BnzInstruction(fields(0), fields(2).toInt, fields(3))
+          case x =>
+            println(s"Unknown instruction $x")
+        }*/

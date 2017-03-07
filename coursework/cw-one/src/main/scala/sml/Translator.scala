@@ -1,5 +1,7 @@
 package sml
 
+import scala.util.control.Exception._
+
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
  */
@@ -31,20 +33,11 @@ class Translator(fileName: String) {
       program = program :+ reflectedClassConstructor.newInstance(args: _*).asInstanceOf[Instruction]
     }
     new Machine(labels, program)
-  }
+  } 
 
-  private def parseFields(fields: Array[String]) = {
-    val args = new Array[AnyRef](fields.length)
-    for (i <- fields.indices) {
-      val optionalInt = toIntIfNumber(fields(i))
-      args(i) = if (optionalInt.isEmpty) fields(i) else optionalInt.get
-    }
-    args
-  }
+  private def parseFields(fields: Array[String]) = fields.map(str => toInt(str).getOrElse(str))
 
-  import scala.util.control.Exception._
-  private def toIntIfNumber(field: String): Option[Integer] =
-    catching(classOf[NumberFormatException]) opt field.toInt
+  private def toInt(field: String): Option[Integer] = catching(classOf[NumberFormatException]) opt field.toInt
 }
 
 object Translator {

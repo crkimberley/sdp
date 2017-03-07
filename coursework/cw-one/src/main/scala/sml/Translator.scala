@@ -29,13 +29,11 @@ class Translator(fileName: String) {
       }
       val qualifiedClassname = "sml." + fields(1).toLowerCase().capitalize + "Instruction"
       val reflectedClassConstructor = Class.forName(qualifiedClassname).getConstructors()(0)
-      val args = fields.take(2) ++ parseArgs(fields.drop(2))
-      program = program :+ reflectedClassConstructor.newInstance(args: _*).asInstanceOf[Instruction]
+      val parsedFields = fields.take(2) ++ fields.drop(2).map(s => toInt(s).getOrElse(s))
+      program = program :+ reflectedClassConstructor.newInstance(parsedFields: _*).asInstanceOf[Instruction]
     }
     new Machine(labels, program)
   }
-
-  private def parseArgs(args: Array[String]) = args.map(s => toInt(s).getOrElse(s))
 
   private def toInt(string: String): Option[Integer] = catching(classOf[NumberFormatException]) opt string.toInt
 }

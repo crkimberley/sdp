@@ -29,15 +29,15 @@ class Translator(fileName: String) {
       }
       val qualifiedClassname = "sml." + fields(1).toLowerCase().capitalize + "Instruction"
       val reflectedClassConstructor = Class.forName(qualifiedClassname).getConstructors()(0)
-      val args = fields.slice(0, 2) ++ parseFields(fields.slice(2, fields.length))
+      val args = fields.slice(0, 2) ++ parseArgs(fields.slice(2, fields.length))
       program = program :+ reflectedClassConstructor.newInstance(args: _*).asInstanceOf[Instruction]
     }
     new Machine(labels, program)
-  } 
+  }
 
-  private def parseFields(fields: Array[String]) = fields.map(str => toInt(str).getOrElse(str))
+  private def parseArgs(args: Array[String]) = args.map(s => toInt(s).getOrElse(s))
 
-  private def toInt(field: String): Option[Integer] = catching(classOf[NumberFormatException]) opt field.toInt
+  private def toInt(string: String): Option[Integer] = catching(classOf[NumberFormatException]) opt string.toInt
 }
 
 object Translator {

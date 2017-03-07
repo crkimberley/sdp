@@ -29,7 +29,7 @@ class Translator(fileName: String) {
       }
       val qualifiedClassname = "sml." + fields(1).toLowerCase().capitalize + "Instruction"
       val reflectedClassConstructor = Class.forName(qualifiedClassname).getConstructors()(0)
-      val args = fields.slice(0, 2) ++ parseArgs(fields.slice(2, fields.length))
+      val args = fields.take(2) ++ parseArgs(fields.drop(2))
       program = program :+ reflectedClassConstructor.newInstance(args: _*).asInstanceOf[Instruction]
     }
     new Machine(labels, program)

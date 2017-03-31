@@ -1,0 +1,5 @@
+iconst 4
+iconst 5
+destroy
+kill
+die!

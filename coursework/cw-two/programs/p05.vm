@@ -1,0 +1,18 @@
+iconst 6
+iconst 5
+iconst 4
+iconst 3
+iconst 2
+iconst 1
+iadd
+iadd
+iadd
+iadd
+iadd
+print
+iconst 2
+iconst 1
+idup
+iadd
+iadd
+print

@@ -70,4 +70,3 @@ project/plugins/project/
 # ENSIME specific
 .ensime_cache/
 .ensime
-/exercises/week03/src/test/scala/basics/PublicScalaBasicsSuite.scala

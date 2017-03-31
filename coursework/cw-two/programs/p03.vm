@@ -1,0 +1,20 @@
+iconst 7
+iconst 7
+iswap
+iadd
+iconst 2
+iadd
+iconst 4
+isub
+iconst 1
+imul
+iconst 2
+idiv
+iconst 1
+irem
+ineg
+idec
+iinc
+idup
+print
+print

@@ -1,0 +1,11 @@
+2. In this question we examine the Singleton design pattern.
+(a) Why might you decide to lazy-initialise a singleton instance rather than
+initialise it in its field declaration? Provide code examples of both approaches
+to illustrate your answer.
+
+A possible reason for using lazy-initialisation would be if object creation is
+expensive and it is desirable to delay it, or if it may not be required at all.
+
+(1) SingletonEager uses a Scala object, which automatically creates a singleton
+
+(2) SingletonLazy

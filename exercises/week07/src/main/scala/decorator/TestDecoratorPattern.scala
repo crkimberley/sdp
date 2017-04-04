@@ -7,6 +7,26 @@ object TestDecoratorPattern {
 
   def main(args: Array[String]) {
     var pizza: Pizza = new SimplyVegPizza
+    print(pizza)
+    pizza = new SimplyVegPizza with RomaTomatoes
+    print(pizza)
+    pizza = new SimplyVegPizza with GreenOlives
+    print(pizza)
+    pizza = new SimplyVegPizza with Spinach
+    print(pizza)
+    pizza = new SimplyNonVegPizza
+    print(pizza)
+    pizza = new SimplyNonVegPizza with Meat
+    print(pizza)
+    pizza = new SimplyNonVegPizza with Cheese
+    print(pizza)
+    pizza = new SimplyNonVegPizza with Ham
+    print(pizza)
+    pizza = new SimplyNonVegPizza with Ham with Cheese with GreenOlives
+    print(pizza)
+
+    /*
+    var pizza: Pizza = new SimplyVegPizza
     pizza = new RomaTomatoes(pizza)
     print(pizza)
     pizza = new GreenOlives(pizza)
@@ -21,6 +41,7 @@ object TestDecoratorPattern {
     print(pizza)
     pizza = new Ham(pizza)
     print(pizza)
+     */
   }
 
   private def print(pizza: Pizza) {

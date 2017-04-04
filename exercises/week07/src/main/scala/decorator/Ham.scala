@@ -1,11 +1,7 @@
 package decorator
 
-class Ham(val pizza: Pizza) extends Pizza {
-  def getDesc: String = {
-    return null
-  }
+trait Ham extends Pizza with PizzaDecorator {
+  abstract override def getDesc: String = super.getDesc + " + Ham"
 
-  def getPrice: Double = {
-    return 0
-  }
+  abstract override def getPrice: Double = super.getPrice + 0.75
 }

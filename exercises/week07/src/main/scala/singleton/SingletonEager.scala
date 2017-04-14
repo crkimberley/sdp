@@ -1,5 +1,7 @@
 package singleton
 
+// I think Scala objects are naturally lazy though
+
 /**
   * @author Chris Kimberley
   */

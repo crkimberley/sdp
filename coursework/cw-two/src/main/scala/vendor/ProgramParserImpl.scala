@@ -1,5 +1,7 @@
 package vendor
 
+import scala.io.Source
+
 /**
   * @author Chris Kimberley
   */
@@ -11,7 +13,8 @@ class ProgramParserImpl extends ProgramParser {
     * @param file the file to parse
     * @return an instruction list
     */
-  override def parse(file: String): InstructionList = Vector[Instruction]()
+  override def parse(file: String): InstructionList =
+    parseString(Source.fromFile(file).getLines.mkString("\n"))
 
   /**
     * Parses a string representation of a bytecode program

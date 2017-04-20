@@ -15,6 +15,12 @@ class PublicVendorParserSuite extends FunSuite {
     val insts = vp.parse("programs/p03.vm")
     assert(insts.length == 20)
 
+    val insts2 = vp.parse("programs/p01.vm")
+    assert(insts2.length == 4)
+
+    val insts3 = vp.parse("programs/p05.vm")
+    assert(insts3.length == 18)
+
     val all = Vector("iconst", "iconst", "iswap", "iadd", "iconst", "iadd",
       "iconst", "isub", "iconst", "imul", "iconst", "idiv",
       "iconst", "irem", "ineg", "idec", "iinc", "idup", "print", "print")

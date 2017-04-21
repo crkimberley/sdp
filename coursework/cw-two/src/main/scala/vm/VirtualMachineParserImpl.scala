@@ -36,7 +36,7 @@ class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues 
   override def parseString(str: String): Vector[ByteCode] =
     byteCodeParser.parse(instructionsToBytes(programParser.parseString(str)))
 
-  def instructionsToBytes(instructions: Vector[Instruction]): Vector[Byte] = {
+  def instructionsToBytes(instructions: Vector[Instruction]) = {
     var bytes = Vector[Byte]()
     for (instruction <- instructions) {
       bytes = bytes :+ bytecode(instruction.name)

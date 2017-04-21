@@ -1,11 +1,11 @@
 package vm
-import bc.{ByteCode, ByteCodeParserImpl}
-import vendor.ProgramParserImpl
+import bc.{ByteCode, ByteCodeParserImpl, ByteCodeValues}
+import vendor.{Instruction, ProgramParserImpl}
 
 /**
   * @author Chris Kimberley
   */
-class VirtualMachineParserImpl extends VirtualMachineParser {
+class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues {
   val programParser = new ProgramParserImpl
   val byteCodeParser = new ByteCodeParserImpl
 
@@ -19,7 +19,9 @@ class VirtualMachineParserImpl extends VirtualMachineParser {
     * @param file the file containing a program
     * @return a vector of bytecodes
     */
-  override def parse(file: String): Vector[ByteCode] = ???
+  override def parse(file: String): Vector[ByteCode] =
+    byteCodeParser.parse(instructionsToBytes(programParser.parse(file)))
+
 
   /**
     * Returns a vector of [[bc.ByteCode]].
@@ -31,5 +33,15 @@ class VirtualMachineParserImpl extends VirtualMachineParser {
     * @param str a string containing a program
     * @return a vector of bytecodes
     */
-  override def parseString(str: String): Vector[ByteCode] = ???
+  override def parseString(str: String): Vector[ByteCode] =
+    byteCodeParser.parse(instructionsToBytes(programParser.parseString(str)))
+
+  def instructionsToBytes(instructions: Vector[Instruction]): Vector[Byte] = {
+    var bytes = Vector[Byte]()
+    for (instruction <- instructions) {
+      bytes = bytes :+ bytecode(instruction.name)
+      if (instruction.name == "iconst") bytes = bytes :+ instruction.args(0).toByte
+    }
+    bytes
+  }
 }

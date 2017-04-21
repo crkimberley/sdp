@@ -1,5 +1,5 @@
 package vm
-import bc.{ByteCode, ByteCodeParserImpl, ByteCodeValues}
+import bc.{ByteCode, ByteCodeParserImpl, ByteCodeValues, InvalidBytecodeException}
 import vendor.{Instruction, ProgramParserImpl}
 
 /**
@@ -39,6 +39,7 @@ class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues 
   def instructionsToBytes(instructions: Vector[Instruction]) = {
     var bytes = Vector[Byte]()
     for (instruction <- instructions) {
+      if (!bytecode.contains(instruction.name)) throw new InvalidBytecodeException("Invalid byte code")
       bytes = bytes :+ bytecode(instruction.name)
       if (instruction.name == "iconst") bytes = bytes :+ instruction.args(0).toByte
     }

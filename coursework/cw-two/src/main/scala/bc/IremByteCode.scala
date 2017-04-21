@@ -18,6 +18,9 @@ class IremByteCode extends ByteCode {
     * @param vm the initial virtual machine
     * @return a new virtual machine
     */
-  override def execute(vm: VirtualMachine): VirtualMachine =
-    vm.push(vm.pop()._1 % vm.pop()._1)
+  override def execute(vm: VirtualMachine): VirtualMachine = {
+    val (x, vm1) = vm.pop()
+    val (y, vm2) = vm1.pop()
+    vm2.push(x % y)
+  }
 }

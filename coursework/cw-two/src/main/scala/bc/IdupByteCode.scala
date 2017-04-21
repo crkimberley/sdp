@@ -19,8 +19,8 @@ class IdupByteCode extends ByteCode {
     * @return a new virtual machine
     */
   override def execute(vm: VirtualMachine): VirtualMachine = {
-    val x = vm.pop()._1
-    vm.push(x)
-    vm.push(x)
+    val (x, vm1) = vm.pop()
+    val vm2 = vm1.push(x)
+    vm2.push(x)
   }
 }

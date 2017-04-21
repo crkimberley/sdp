@@ -32,6 +32,6 @@ class ByteCodeFactoryImpl extends ByteCodeFactory with ByteCodeValues {
     case _ if byte == bytecode("idup") => new IdupByteCode
     case _ if byte == bytecode("iswap") => new IswapByteCode
     case _ if byte == bytecode("print") => new PrintByteCode
-    case _  => throw new InvalidBytecodeException("Not a valid instruction")
+    case _  => throw new InvalidBytecodeException("Not a valid byte for an instruction")
   }
 }

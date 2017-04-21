@@ -10,6 +10,7 @@ class PublicByteCodeFactorySuite extends FunSuite with ByteCodeValues {
     // Tests that each bytecode (modulo "iconst") can be made.
     for ((name, code) <- (bytecode - "iconst")) {
       val bc = bcf.make(code)
+      println("name: " + name + " code: " + code + " bc.code: " + bc.code)
       assert(bc.code == code, "invalid bytecode value")
     }
 

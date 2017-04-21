@@ -19,9 +19,9 @@ class IswapByteCode extends ByteCode {
     * @return a new virtual machine
     */
   override def execute(vm: VirtualMachine): VirtualMachine = {
-    val x = vm.pop()._1
-    val y = vm.pop()._1
-    vm.push(x)
-    vm.push(y)
+    val (x, vm1) = vm.pop()
+    val (y, vm2) = vm1.pop()
+    val vm3 = vm2.push(x)
+    vm3.push(y)
   }
 }

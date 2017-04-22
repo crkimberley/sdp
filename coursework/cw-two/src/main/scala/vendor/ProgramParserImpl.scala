@@ -27,10 +27,19 @@ class ProgramParserImpl extends ProgramParser {
     var instructions = Vector[Instruction]()
     val lines = string.trim.split("\n").map(_.trim)
     for (line <- lines) {
-      var argument = Vector[Int]()
-      val splitLine = line.split("\\s+")
-      if (splitLine.length > 1) argument = argument :+ splitLine(1).toInt
-      instructions = instructions :+ new Instruction(splitLine(0), argument)
+      if (line != "") {
+        var argument = Vector[Int]()
+        val splitLine = line.split("\\s+")
+        if (splitLine.length > 2)
+          throw new InvalidInstructionFormatException("Too many arguments")
+        if (splitLine.length == 2) {
+          if (splitLine(0) != "iconst")
+            throw new InvalidInstructionFormatException("Only iconst takes an argument")
+          argument = argument :+ splitLine(1).toInt
+        } else if (splitLine(0) == "iconst")
+          throw new InvalidInstructionFormatException("iconst requires an argument")
+        instructions = instructions :+ new Instruction(splitLine(0), argument)
+      }
     }
     instructions
   }

@@ -22,7 +22,6 @@ class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues 
   override def parse(file: String): Vector[ByteCode] =
     byteCodeParser.parse(instructionsToBytes(programParser.parse(file)))
 
-
   /**
     * Returns a vector of [[bc.ByteCode]].
     *
@@ -39,7 +38,10 @@ class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues 
   def instructionsToBytes(instructions: Vector[Instruction]) = {
     var bytes = Vector[Byte]()
     for (instruction <- instructions) {
-      if (!bytecode.contains(instruction.name)) throw new InvalidBytecodeException("Invalid byte code")
+      println(instruction.name)
+      if (!bytecode.contains(instruction.name))
+        {println("bad name")
+        throw new InvalidBytecodeException("Invalid bytecode name")}
       bytes = bytes :+ bytecode(instruction.name)
       if (instruction.name == "iconst") bytes = bytes :+ instruction.args(0).toByte
     }

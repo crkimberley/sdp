@@ -50,10 +50,20 @@ class PublicVirtualMachineSuite extends FunSuite {
     assert(next._2.state(1) == 2)
   }
 
-  test("virtual machine should throw excption if popping from empty stack") {
+  test("virtual machine should throw exception if popping from empty stack") {
     intercept[MachineUnderflowException] {
       val bc  = vmp.parse("programs/p10.vm")
       val vm2 = vm.execute(bc)
     }
+  }
+
+  test("a virtual machine should execute another program") {
+    println()
+    println()
+    println("Program p11")
+    val bc  = vmp.parse("programs/p11.vm")
+    val vm2 = vm.execute(bc)
+    println()
+    println()
   }
 }

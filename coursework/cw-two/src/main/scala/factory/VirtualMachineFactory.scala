@@ -11,16 +11,16 @@ import vm.{VirtualMachine, VirtualMachineImpl, VirtualMachineParser, VirtualMach
   */
 object VirtualMachineFactory {
   // TODO
-  def byteCodeFactory: ByteCodeFactory = new ByteCodeFactoryImpl
+  def byteCodeFactory: ByteCodeFactory = ByteCodeFactoryImpl
 
   // TODO
-  def vendorParser: ProgramParser = new ProgramParserImpl
+  def vendorParser: ProgramParser = ProgramParserImpl
 
   // TODO
-  def byteCodeParser: ByteCodeParser = new ByteCodeParserImpl
+  def byteCodeParser: ByteCodeParser = ByteCodeParserImpl
 
   // TODO
-  def virtualMachineParser: VirtualMachineParser = new VirtualMachineParserImpl
+  def virtualMachineParser: VirtualMachineParser = VirtualMachineParserImpl
 
   // TODO
   def virtualMachine: VirtualMachine = new VirtualMachineImpl

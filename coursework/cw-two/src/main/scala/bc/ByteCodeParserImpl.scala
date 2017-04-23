@@ -3,8 +3,8 @@ package bc
 /**
   * @author Chris Kimberley
   */
-class ByteCodeParserImpl extends ByteCodeParser {
-  val byteCodeFactory = new ByteCodeFactoryImpl
+object ByteCodeParserImpl extends ByteCodeParser {
+  val byteCodeFactory = ByteCodeFactoryImpl
   /**
     * Parses a vector of `Byte` into a vector of `ByteCode`.
     *

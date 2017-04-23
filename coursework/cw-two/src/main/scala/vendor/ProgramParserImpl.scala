@@ -5,7 +5,7 @@ import scala.io.Source
 /**
   * @author Chris Kimberley
   */
-class ProgramParserImpl extends ProgramParser {
+object ProgramParserImpl extends ProgramParser {
   /**
     * Parses a file representation of a bytecode program
     * into an `InstructionList`.

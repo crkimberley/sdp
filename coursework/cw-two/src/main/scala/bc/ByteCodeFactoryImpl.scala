@@ -3,7 +3,7 @@ package bc
 /**
   * @author Chris Kimberley
   */
-class ByteCodeFactoryImpl extends ByteCodeFactory with ByteCodeValues {
+object ByteCodeFactoryImpl extends ByteCodeFactory with ByteCodeValues {
   /**
     * Returns a [[ByteCode]].
     *

@@ -5,9 +5,9 @@ import vendor.{Instruction, ProgramParserImpl}
 /**
   * @author Chris Kimberley
   */
-class VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues {
-  val programParser = new ProgramParserImpl
-  val byteCodeParser = new ByteCodeParserImpl
+object VirtualMachineParserImpl extends VirtualMachineParser with ByteCodeValues {
+  val programParser = ProgramParserImpl
+  val byteCodeParser = ByteCodeParserImpl
 
   /**
     * Returns a vector of [[bc.ByteCode]].

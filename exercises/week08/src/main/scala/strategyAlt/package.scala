@@ -4,8 +4,6 @@
 package object strategyAlt {
   type Strategy = String => String
 
-  trait Formatter {
-    private[strategyAlt] var strategy: Strategy
-    def format(text: String): String = strategy(text)
-  }
+  val capTextFormatter: Strategy = _.toUpperCase
+  val lowerTextFormatter: Strategy = _.toLowerCase
 }

@@ -1,5 +1,5 @@
 import org.scalatest.FunSuite
-import strategyAlt.CapTextFormatter
+import strategyAlt.{Context, capTextFormatter, lowerTextFormatter}
 
 /**
   * @author Chris Kimberley
@@ -7,10 +7,14 @@ import strategyAlt.CapTextFormatter
 class StrategyTests extends FunSuite {
   test("strategyAlt") {
     val someText = "Some Text To Be Formatted"
-    val textFormatter = CapTextFormatter()
-    println(textFormatter.format(someText))
+    println(new Context(capTextFormatter).format(someText))
+    println(new Context(lowerTextFormatter).format(someText))
 
-    textFormatter.strategy = (text: String) => text.toLowerCase
-    println(textFormatter.format(someText))
+    println
+
+    val context = new Context(capTextFormatter)
+    println(context.format(someText))
+    context.formatter = lowerTextFormatter
+    println(context.format(someText))
   }
 }

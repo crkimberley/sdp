@@ -1,8 +1,10 @@
+(Definitions are largely taken from the original Design Patterns, Gang of Four
+book)
+
 Q1(a)
-The Strategy Design Pattern (as described in the original Design Patterns, Gang
-of Four book) involves defining a family of algorithms, encapsulating each one,
-and making them interchangeable. The algorithm can then vary independently from
-clients that use it.
+The Strategy Design Pattern involves defining a family of algorithms,
+encapsulating each one, and making them interchangeable. The algorithm can then
+vary independently from clients that use it.
 
 The implementation can be selected dynamically at runtime.
 
@@ -22,3 +24,22 @@ when:
 
  e.g. different sorting algorithms for different types of data,
  different parsers, etc.
+
+
+Q3
+It is appropriate to use an Abstract Factory Pattern when:
+
+ - a system should be independent of how its products are created, composed and
+ represented
+
+ - a system should be configured with one of multiple families of products
+
+ - a family of related product objects is designed to be used together and you
+ need to enforce this constraint
+
+ - you want to provide a class library of products and you want to reveal just
+ their interfaces, not their implementations
+
+ An interface is provided for creating families of related or dependent objects
+ without specifying their concrete classes
+

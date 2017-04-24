@@ -10,18 +10,14 @@ import vm.{VirtualMachine, VirtualMachineImpl, VirtualMachineParser, VirtualMach
   * implement each method such that it returns an object of the correct type.
   */
 object VirtualMachineFactory {
-  // TODO
+
   def byteCodeFactory: ByteCodeFactory = ByteCodeFactoryImpl
 
-  // TODO
   def vendorParser: ProgramParser = ProgramParserImpl
 
-  // TODO
   def byteCodeParser: ByteCodeParser = ByteCodeParserImpl
 
-  // TODO
   def virtualMachineParser: VirtualMachineParser = VirtualMachineParserImpl
 
-  // TODO
   def virtualMachine: VirtualMachine = new VirtualMachineImpl
 }

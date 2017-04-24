@@ -43,6 +43,7 @@ It is appropriate to use an Abstract Factory Pattern when:
  An interface is provided for creating families of related or dependent objects
  without specifying their concrete classes
 
+
 Q5
 “In general, the details of object construction, such as instantiating and
 initialising the components that comprise the object, are kept within the
@@ -57,3 +58,24 @@ representations are required.
 The Builder pattern separates the construction of a complex object from its
 representation, so that the same construction process can create different
 representations.
+
+
+Q7(a)
+The Facade Pattern provides a unified interface to a set of interfaces in
+subsystem. Facade defines a higher-level interface that makes the subsystem
+easier to use.
+
+(b)
+You would use the Facade pattern when:
+
+ - you wanted to provide a simple interface to a complex subsystem.
+
+ - there are many dependencies between clients and the implementation classes of
+ an abstraction. Introduction of a facade will decouple the subsystem from clients
+ and other subsystems, promoting subsystem independence and portability.
+
+ - you want to layer your subsystems. You use a facade to define an entry point
+ to each subsystem level.
+
+
+

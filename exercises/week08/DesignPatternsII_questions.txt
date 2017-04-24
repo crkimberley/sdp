@@ -43,3 +43,17 @@ It is appropriate to use an Abstract Factory Pattern when:
  An interface is provided for creating families of related or dependent objects
  without specifying their concrete classes
 
+Q5
+“In general, the details of object construction, such as instantiating and
+initialising the components that comprise the object, are kept within the
+object, often as part of its constructor.”
+
+Comment on this statement with reference to modularity and construction bloat.
+
+The construction of complex objects can get very unwieldy with many different
+elements to initialise and instantiate, particularly if a variety of different
+representations are required.
+
+The Builder pattern separates the construction of a complex object from its
+representation, so that the same construction process can create different
+representations.

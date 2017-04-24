@@ -5,11 +5,12 @@ package singleton
 /**
   * @author Chris Kimberley
   */
-class SingletonEager private {
-  override def toString: String = "This is an eager singleton"
+class SingletonEager private() {
+  private val instance = null
 }
 
 object SingletonEager {
-  val singletonEager = new SingletonEager
-  def getInstance = singletonEager
+  println("Object creation?")
+  private val instance = new SingletonEager
+  def getInstance = instance
 }

@@ -1,0 +1,24 @@
+Q1(a)
+The Strategy Design Pattern (as described in the original Design Patterns, Gang
+of Four book) involves defining a family of algorithms, encapsulating each one,
+and making them interchangeable. The algorithm can then vary independently from
+clients that use it.
+
+The implementation can be selected dynamically at runtime.
+
+Clients do not need to know how operations are implemented.
+
+
+Q1(b)
+The Design Patterns book suggests it is appropriate to use the Strategy pattern
+when:
+
+ - A group of related classes differ only in their behaviours
+
+ - Different versions of an algorithm are required
+
+ - A class defines many behaviours in multiple conditional statements. Related
+ conditional branches can be moved into their own Strategy class
+
+ e.g. different sorting algorithms for different types of data,
+ different parsers, etc.

@@ -78,4 +78,24 @@ You would use the Facade pattern when:
  to each subsystem level.
 
 
+Q9
+You should make use of the Bridge Design Pattern when:
+
+ - you want to avoid a permanent binding between an abstraction and its
+ implementation.
+
+
+ - both the abstractions and their implementtions should be extensible by
+ subclassing. In this case the Bridge pattern lets you combine the different
+ abstractions and implementations and extend them independently.
+
+ - changes in the implementation of an abstraction should have no impact on
+ clients.
+
+ - you want to share an implementation among multiple objects and this fact
+ should be hidden from the client.
+
+
+The intent of the Bridge pattern is that an abstraction is decoupled from its
+abstraction so the two can vary independently.
 

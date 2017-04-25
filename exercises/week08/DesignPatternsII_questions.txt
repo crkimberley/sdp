@@ -99,3 +99,24 @@ You should make use of the Bridge Design Pattern when:
 The intent of the Bridge pattern is that an abstraction is decoupled from its
 abstraction so the two can vary independently.
 
+
+Q11
+(a)
+The Composite Pattern composes objects into tree structures to represent
+part-whole hierarchies. Clients can treat individual objects and compositions of
+objects uniformly.
+
+(b)
+You would use the Composite pattern when:
+
+- you want to represent part-whole hierarchies of objects
+
+- you want clients to be able to ignore the difference between compositions of
+objects and individual objects. Clients will treat all objects in the composite
+structure uniformly.
+
+(c)
+The 4 participants of the pattern are:
+ - component, leaf, composite and client.
+
+

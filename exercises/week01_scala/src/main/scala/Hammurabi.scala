@@ -1,19 +1,24 @@
 import scala.io.StdIn._
+import scala.util.Random
+import util.control.Breaks._
+
 /**
   * @author Chris Kimberley
   */
 object Hammurabi extends App {
 
+  val randomNumberGenerator = new Random()
+
   def hammurabi = {
-    var starved = 0            // how many people starved
-    var immigrants = 5         // how many people came to the city
+    var starved = 0 // how many people starved
+    var immigrants = 5 // how many people came to the city
     var population = 100
-    var harvest = 3000          // total bushels harvested
-    var bushelsPerAcre = 3      // amount harvested for each acre planted
-    var rats_ate = 200          // bushels destroyed by rats
+    var harvest = 3000 // total bushels harvested
+    var bushelsPerAcre = 3 // amount harvested for each acre planted
+    var rats_ate = 200 // bushels destroyed by rats
     var bushelsInStorage = 2800
     var acresOwned = 1000
-    var pricePerAcre = 19       // each acre costs this many bushels
+    var pricePerAcre = 19 // each acre costs this many bushels
     var plagueDeaths = 0
 
     printIntroductoryMessage
@@ -52,7 +57,38 @@ object Hammurabi extends App {
       var acresToPlant =
         askHowMuchLandToPlant(acresOwned, bushelsInStorage, population)
       bushelsInStorage -= acresToPlant * 2
+
+      if (plague) {
+        plagueDeaths += (population / 2)
+        population /= 2
+      }
+
+      var numberOfPeopleWhoCouldBeFed = grainForPeople / 20
+      var peopleStarved = if (numberOfPeopleWhoCouldBeFed < population)
+        population - numberOfPeopleWhoCouldBeFed
+      else 0
+      if (peopleStarved * 100 / population > 45) {
+        println("TOO MANY PEOPLE STARVED - YOUR REIGN IS OVER!")
+        break
+      }
+      starved += peopleStarved
+
+      var immigrantsThisYear = immigrantsComing(peopleStarved, acresOwned,
+        bushelsInStorage, population)
+      immigrants += immigrantsThisYear
+      population += immigrants
+
+      var thisYearsHarvest = harvestThisYear(acresToPlant)
+      harvest += thisYearsHarvest
+
+      bushelsInStorage -= (percentageEatenByRats * bushelsInStorage / 100)
+
+      pricePerAcre = landCost
     }
+
+    println("Final Result")
+    println(s"Number of people who starved = $starved")
+    println(s"Number of acres = $acresOwned")
   }
 
   def printIntroductoryMessage = println(
@@ -121,6 +157,26 @@ object Hammurabi extends App {
     }
     acresToPlant
   }
+
+  def plague = randomNumberGenerator.nextInt(100) < 15
+
+  def immigrantsComing(peopleStarved: Int, acresOwned: Int,
+                       bushelsInStorage: Int, population: Int) = {
+    if (peopleStarved == 0)
+      (20 * acresOwned + bushelsInStorage) / (100 * population) + 1
+    else 0
+  }
+
+  def harvestThisYear(acresToPlant: Int) =
+    acresToPlant * (randomNumberGenerator.nextInt(7) + 1)
+
+  def percentageEatenByRats = {
+    if (randomNumberGenerator.nextInt(100) < 40)
+      (randomNumberGenerator.nextInt(2) + 1) * 10
+    else 0
+  }
+
+  def landCost = 17 + randomNumberGenerator.nextInt(7)
 
   hammurabi
 }

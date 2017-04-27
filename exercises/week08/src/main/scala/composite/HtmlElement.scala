@@ -9,9 +9,7 @@ case class HtmlElement(s: String) extends HtmlTag(s) {
 
   override def setEndTag(tag: String): Unit = endTag = tag
 
-  override def setTagBody(tagBody: String): Unit = {
-    body = tagBody
-  }
+  override def setTagBody(tagBody: String): Unit = body = tagBody
 
   override def generateHtml: Unit = println(startTag + body + endTag)
 }

@@ -1,3 +1,5 @@
+package alarm
+
 import java.util.Calendar
 
 import scala.collection.mutable
@@ -11,6 +13,7 @@ class SecurityControlUnit(sensors: mutable.Buffer[Sensor]) extends ControlUnit(s
 
   override def pollSensors {
     var currentTime = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
-    if (currentTime >= securitySensorPollStartTime || currentTime < securitySensorPollEndTime) super.pollSensors
+    if (currentTime >= securitySensorPollStartTime ||
+      currentTime < securitySensorPollEndTime) super.pollSensors
   }
 }

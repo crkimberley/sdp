@@ -1,3 +1,5 @@
+package alarm
+
 import scala.collection.mutable
 
 class ControlUnit(sensors: mutable.Buffer[Sensor]) {

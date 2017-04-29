@@ -1,3 +1,5 @@
+package alarm
+
 import scala.util.Random
 
 /**
@@ -8,5 +10,5 @@ trait SecuritySensor extends Sensor {
 
   def isTriggered(alarmFrequency: Int) = r.nextInt(100) < alarmFrequency
 
-  override def getSensorCategory = SensorCategory.SECURITY
+  override def getSensorCategory = "SECURITY"
 }

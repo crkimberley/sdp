@@ -7,7 +7,8 @@ class FireSensor extends Sensor with HazardSensor {
 
   override def isTriggered = {
     var triggered = isTriggered(batteryPercentage, alarmFrequencyPercentage)
-    batteryPercentage = batteryDrainedPercentage(batteryPercentage, batteryDrainBetweenPollsPercentage)
+    batteryPercentage = batteryDrainedPercentage(batteryPercentage,
+      batteryDrainBetweenPollsPercentage)
     triggered
   }
 

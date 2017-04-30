@@ -77,6 +77,6 @@ class AlarmSystemTests extends FunSuite {
       new MotionSensor("office", CallOwnersPhone()),
       new MotionSensor("reception"))
     val controlUnit = new SecurityControlUnit(sensors)
-    for (i <- 1 to 2) controlUnit.pollSensors
+    for (i <- 1 to 10) controlUnit.pollSensors
   }
 }

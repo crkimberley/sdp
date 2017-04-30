@@ -13,12 +13,12 @@ class SecurityControlUnit(sensors: ListBuffer[Sensor]) extends ControlUnit(senso
   val securitySensorPollEndTime = 6
 
   override def pollSensors {
-    //var currentTime = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+    var currentTime = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
     // currentTime loop for testing purposes
-    for (currentTime <- 0 to 23) {
+    //for (currentTime <- 0 to 23) {
       println(s"current hour is: $currentTime")
       if (currentTime >= securitySensorPollStartTime ||
         currentTime < securitySensorPollEndTime) super.pollSensors
-    }
+    //}
   }
 }

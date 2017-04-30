@@ -3,8 +3,10 @@ package alarm
 import java.io.IOException
 import java.util.Scanner
 
+import notification.CallFireDepartment
+
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 /**
   * @author Chris Kimberley
@@ -15,8 +17,9 @@ object App {
 
   @throws[IOException]
   def main(args: Array[String]) {
-    var sensors: mutable.Buffer[Sensor] = new ArrayBuffer
-    sensors.append(new FireSensor("kitchen"), new SmokeSensor("office"))
+    var sensors = new ListBuffer[Sensor]
+    sensors.append(new FireSensor("kitchen", CallFireDepartment()),
+      new SmokeSensor("office", CallFireDepartment()))
     val controlUnit: ControlUnit = new ControlUnit(sensors)
     val scanner: Scanner = new Scanner(System.in)
     var input: String = ""

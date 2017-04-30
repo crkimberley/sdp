@@ -1,9 +1,11 @@
 package alarm
 
+import notification.{AlarmNotification, DefaultWarning}
+
 /**
   * @author Chris Kimberley
   */
-class MotionSensor(location: String) extends Sensor(location) with SecuritySensor {
+class MotionSensor(location: String, var warning: AlarmNotification = DefaultWarning()) extends Sensor(location, warning) with SecuritySensor {
   // Percentage in spec? Placeholder value: 8 percent
   val alarmFrequencyPercentage = 8
 
@@ -11,5 +13,5 @@ class MotionSensor(location: String) extends Sensor(location) with SecuritySenso
 
   override def getSensorType = "Motion"
 
-  override def isTriggered = isTriggered(alarmFrequencyPercentage)
+  override def isTriggered: Boolean = isTriggered(alarmFrequencyPercentage)
 }

@@ -1,6 +1,8 @@
 package alarm
 
-abstract class Sensor(location: String) {
+import notification.{AlarmNotification, CallOwnersPhone, DefaultWarning}
+
+abstract class Sensor(location: String, warning: AlarmNotification) {
 
   def isTriggered: Boolean
 
@@ -9,6 +11,8 @@ abstract class Sensor(location: String) {
   def getSensorType: String
 
   def getSensorCategory: String
+
+  def alarm = warning.notification(location)
 
   //def getBatteryPercentage: Double
 }

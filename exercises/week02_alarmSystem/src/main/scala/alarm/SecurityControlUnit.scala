@@ -8,7 +8,8 @@ import scala.collection.mutable.ListBuffer
 /**
   * @author Chris Kimberley
   */
-class SecurityControlUnit(sensors: ListBuffer[Sensor]) extends ControlUnit(sensors) {
+class SecurityControlUnit(sensors: ListBuffer[Sensor]) extends
+  ControlUnit(sensors) {
   val securitySensorPollStartTime = 22
   val securitySensorPollEndTime = 6
 

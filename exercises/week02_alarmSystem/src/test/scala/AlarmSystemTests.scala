@@ -9,7 +9,7 @@ import scala.collection.mutable.{ArrayBuffer, ListBuffer}
   */
 class AlarmSystemTests extends FunSuite {
 
-  ignore("FireSensors trigger approx 5% of time if drain temporarily set to 0") {
+  ignore("FireSensors trigger ~5% of time if drain temporarily set to 0") {
     val sensor = new FireSensor("kitchen")
     var triggerCount = 0.0
     for (i <- 1 to 100000) {
@@ -19,7 +19,7 @@ class AlarmSystemTests extends FunSuite {
     assert(triggerCount > 4.5 && triggerCount < 5.5)
   }
 
-  ignore("Smoke Sensors trigger approx 10% of time if drain temporarily set to 0") {
+  ignore("Smoke Sensors trigger ~10% of time if drain temporarily set to 0") {
     val sensor = new SmokeSensor("office")
     var triggerCount = 0.0
     for (i <- 1 to 100000) {
@@ -29,7 +29,7 @@ class AlarmSystemTests extends FunSuite {
     assert(triggerCount > 9.5 && triggerCount < 10.5)
   }
 
-  test("Motion Sensors trigger approx 8% of time") {
+  test("Motion Sensors trigger ~8% of time") {
     val sensor = new MotionSensor("reception")
     var triggerCount = 0.0
     for (i <- 1 to 100000) {

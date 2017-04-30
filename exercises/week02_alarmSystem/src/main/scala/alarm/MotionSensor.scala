@@ -5,7 +5,8 @@ import notification.{AlarmNotification, DefaultWarning}
 /**
   * @author Chris Kimberley
   */
-class MotionSensor(location: String, var warning: AlarmNotification = DefaultWarning()) extends Sensor(location, warning) with SecuritySensor {
+class MotionSensor(location: String, var warning: AlarmNotification =
+DefaultWarning()) extends Sensor(location, warning) with SecuritySensor {
   // Percentage in spec? Placeholder value: 8 percent
   val alarmFrequencyPercentage = 8
 

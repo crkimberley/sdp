@@ -1,4 +1,4 @@
- name := """week01_scala"""
+name := """week01_scala"""
 
 version := "1.0"
 

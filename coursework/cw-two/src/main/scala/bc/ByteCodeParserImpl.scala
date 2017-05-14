@@ -5,6 +5,7 @@ package bc
   */
 object ByteCodeParserImpl extends ByteCodeParser {
   val byteCodeFactory = ByteCodeFactoryImpl
+
   /**
     * Parses a vector of `Byte` into a vector of `ByteCode`.
     *

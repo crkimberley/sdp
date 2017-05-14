@@ -6,8 +6,7 @@ import singleton._
   */
 class SingletonTests extends FunSuite {
 
-  test("SingletonEager uses Scala object to create singleton") {
+  test("SingletonLazy uses Scala object to create singleton") {
     assert(SingletonLazy.toString == "This is a lazy singleton")
-    assert(SingletonLazy.toString == "This is an eager singleton")
   }
 }
